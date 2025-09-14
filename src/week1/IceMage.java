@@ -1,10 +1,8 @@
 package week1;
 
-public class IceMage extends Mage {
+import static week1.GameConfig.*;
 
-    private final static int ICE_MAGE_HEALTH = 150;
-    private final static int ICE_MAGE_ATTACK_MIN = 25;
-    private final static int ICE_MAGE_ATTACK_MAX = 100;
+public class IceMage extends Mage {
 
     public IceMage(String name, int health, int xp) {
         super(name, health, xp);

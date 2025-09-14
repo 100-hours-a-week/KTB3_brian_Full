@@ -1,10 +1,8 @@
 package week1;
 
-public class Warrior extends Character {
+import static week1.GameConfig.*;
 
-    private final static int WARRIOR_HEALTH = 200;
-    private final static int WARRIOR_ATTACK_MIN = 20;
-    private final static int WARRIOR_ATTACK_MAX = 40;
+public class Warrior extends Character {
 
     public Warrior(String name, int health, int xp) {
         super(name, health, xp);

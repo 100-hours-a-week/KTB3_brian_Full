@@ -1,12 +1,9 @@
 package week1;
 
 import java.util.Random;
+import static week1.GameConfig.*;
 
 public class Character {
-
-    private static final int BASIC_HEALTH = 100;
-    private static final int BASIC_ATTACK_MIN = 5;
-    private static final int BASIC_ATTACK_MAX = 10;
 
     public final Random rand = new Random();
     protected String name;
@@ -50,5 +47,10 @@ public class Character {
 
     public int attack() {
         return rand.nextInt(BASIC_ATTACK_MIN, BASIC_ATTACK_MAX);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("현재 나의 캐릭터 상태, HP : %d, XP : %d, 직업 : %s%n", getHealth(), getXp(), getClass());
     }
 }

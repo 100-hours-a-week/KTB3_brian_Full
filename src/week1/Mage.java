@@ -1,10 +1,8 @@
 package week1;
 
-public class Mage extends Character {
+import static week1.GameConfig.*;
 
-    private final static int MAGE_HEALTH = 150;
-    private final static int MAGE_ATTACK_MIN = 30;
-    private final static int MAGE_ATTACK_MAX = 60;
+public class Mage extends Character {
 
     public Mage(String name, int health, int xp) {
         super(name, health, xp);

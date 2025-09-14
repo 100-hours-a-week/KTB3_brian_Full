@@ -1,10 +1,8 @@
 package week1;
 
-public class FireMage extends Mage {
+import static week1.GameConfig.*;
 
-    private final static int FIRE_MAGE_HEALTH = 100;
-    private final static int FIRE_MAGE_ATTACK_MIN = 50;
-    private final static int FIRE_MAGE_ATTACK_MAX = 150;
+public class FireMage extends Mage {
 
     public FireMage(String name, int health, int xp) {
         super(name, health, xp);

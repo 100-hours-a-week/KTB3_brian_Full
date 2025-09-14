@@ -1,10 +1,10 @@
 package week1;
 
+import static week1.GameConfig.*;
+
 public class ThunderWarrior extends Warrior {
 
-    private final static int THUNDER_WARRIOR_HEALTH = 150;
-    private final static int THUNDER_WARRIOR_ATTACK_MIN = 50;
-    private final static int THUNDER_WARRIOR_ATTACK_MAX = 70;
+
 
     public ThunderWarrior(String name, int health, int xp) {
         super(name, health, xp);
