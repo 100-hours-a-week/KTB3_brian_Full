@@ -8,14 +8,14 @@ public class Character {
     private static final int BASIC_ATTACK_MIN = 5;
     private static final int BASIC_ATTACK_MAX = 10;
 
+    public final Random rand = new Random();
     protected String name;
     protected int health;
     protected int xp;
-    private final Random rand = new Random();
 
-    public Character(String name) {
+    public Character(String name, int health) {
         this.name = name;
-        this.health = BASIC_HEALTH;
+        this.health = health;
         this.xp = 0;
     }
 
