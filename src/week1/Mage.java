@@ -6,8 +6,8 @@ public class Mage extends Character {
     private final static int MAGE_ATTACK_MIN = 30;
     private final static int MAGE_ATTACK_MAX = 60;
 
-    public Mage(Character c) {
-        super(c.getName(), MAGE_HEALTH);
+    public Mage(String name, int health, int xp) {
+        super(name, health, xp);
     }
 
     @Override

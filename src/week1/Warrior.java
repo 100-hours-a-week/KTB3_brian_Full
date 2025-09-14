@@ -6,8 +6,8 @@ public class Warrior extends Character {
     private final static int WARRIOR_ATTACK_MIN = 20;
     private final static int WARRIOR_ATTACK_MAX = 40;
 
-    public Warrior(Character c) {
-        super(c.getName(), WARRIOR_HEALTH);
+    public Warrior(String name, int health, int xp) {
+        super(name, health, xp);
     }
 
     @Override

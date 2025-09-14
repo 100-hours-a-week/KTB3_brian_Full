@@ -13,10 +13,16 @@ public class Character {
     protected int health;
     protected int xp;
 
-    public Character(String name, int health) {
+    public Character(String name) {
+        this.name = name;
+        this.health = BASIC_HEALTH;
+        this.xp = 0;
+    }
+
+    public Character(String name, int health, int xp) {
         this.name = name;
         this.health = health;
-        this.xp = 0;
+        this.xp = xp;
     }
 
     public String getName() {
