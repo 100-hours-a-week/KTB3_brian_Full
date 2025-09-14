@@ -51,6 +51,6 @@ public class Character {
 
     @Override
     public String toString() {
-        return String.format("현재 나의 캐릭터 상태, HP : %d, XP : %d, 직업 : %s%n", getHealth(), getXp(), getClass());
+        return String.format("캐릭터 상태, HP : %d, XP : %d, 직업 : %s", getHealth(), getXp(), getClass().getSimpleName());
     }
 }
