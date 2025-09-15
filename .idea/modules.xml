@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ktb.iml" filepath="$PROJECT_DIR$/ktb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/KTB3_brian_Full.iml" filepath="$PROJECT_DIR$/.idea/KTB3_brian_Full.iml" />
     </modules>
   </component>
 </project>
