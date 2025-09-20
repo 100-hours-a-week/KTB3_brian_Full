@@ -3,10 +3,9 @@ package week1;
 import java.util.Random;
 import java.util.Scanner;
 
+import static week1.GameConfig.*;
+
 public class GameService {
-
-
-    public static final int GAME_ENDING_XP = 500;
 
     private final Random random = new Random();
     private final Scanner sc = new Scanner(System.in);
@@ -22,7 +21,7 @@ public class GameService {
             Character enemy = createEnemy();
             battleService.fight(player, enemy);
 
-            if (player.getXp() >= GameService.GAME_ENDING_XP) {
+            if (player.getXp() >= GAME_ENDING_XP) {
                 System.out.println("축하드립니다. 게임에서 승리했습니다");
                 return;
             }
@@ -101,8 +100,8 @@ public class GameService {
 
     private Character createEnemy() {
         String name = "적";
-        int health = random.nextInt(50);
-        int xp = random.nextInt(30);
+        int health = random.nextInt(1,ENEMY_HEALTH_MAX);
+        int xp = random.nextInt(1, ENEMY_XP_MAX);
 
         return new Character(name, health, xp);
     }

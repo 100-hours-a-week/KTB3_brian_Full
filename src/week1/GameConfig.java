@@ -40,4 +40,11 @@ public class GameConfig {
     // 전직 경험치 : 1차
     public final static int FIRST_TIER_UP_XP = 50;
     public final static int SECOND_TIER_UP_XP = 100;
+
+    // 적의 능력치
+    public final static int ENEMY_HEALTH_MAX = 51;
+    public final static int ENEMY_XP_MAX = 31;
+
+    // 게임 종료 경험치
+    public static final int GAME_ENDING_XP = 500;
 }
