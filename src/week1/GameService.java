@@ -3,7 +3,7 @@ package week1;
 import java.util.Random;
 import java.util.Scanner;
 
-import static week1.GameConfig.*;
+import static week1.GameConstants.*;
 
 public class GameService {
 
@@ -44,7 +44,7 @@ public class GameService {
         boolean isTierBasic = character.getClass() == Character.class;
         boolean isTier1 = (character.getClass() == Warrior.class) || (character.getClass() == Mage.class);
 
-        if (isTier1 && character.getXp() >= GameConfig.SECOND_TIER_UP_XP) {
+        if (isTier1 && character.getXp() >= GameConstants.SECOND_TIER_UP_XP) {
             System.out.println("=== 2차 전직 가능 ===");
 
             while (true) {
@@ -54,9 +54,9 @@ public class GameService {
                         String pick = sc.nextLine().trim();
                         switch (pick) {
                             case "1":
-                                return new ThunderWarrior(character.getName(), GameConfig.THUNDER_WARRIOR_HEALTH, character.getXp());
+                                return new ThunderWarrior(character.getName(), GameConstants.THUNDER_WARRIOR_HEALTH, character.getXp());
                             case "2":
-                                return new DragonWarrior(character.getName(), GameConfig.DRAGON_WARRIOR_HEALTH, character.getXp());
+                                return new DragonWarrior(character.getName(), GameConstants.DRAGON_WARRIOR_HEALTH, character.getXp());
                             default:
                                 System.out.println("잘못된 입력입니다. (1) 또는 (2)만 입력해주세요.");
                         }
@@ -67,9 +67,9 @@ public class GameService {
                         String pick = sc.nextLine().trim();
                         switch (pick) {
                             case "1":
-                                return new FireMage(character.getName(), GameConfig.FIRE_MAGE_HEALTH, character.getXp());
+                                return new FireMage(character.getName(), GameConstants.FIRE_MAGE_HEALTH, character.getXp());
                             case "2":
-                                return new IceMage(character.getName(), GameConfig.ICE_MAGE_HEALTH, character.getXp());
+                                return new IceMage(character.getName(), GameConstants.ICE_MAGE_HEALTH, character.getXp());
                             default:
                                 System.out.println("잘못된 입력입니다. (1) 또는 (2)만 입력해주세요.");
                         }
@@ -78,7 +78,7 @@ public class GameService {
             }
         }
 
-        if (isTierBasic && character.getXp() >= GameConfig.FIRST_TIER_UP_XP) {
+        if (isTierBasic && character.getXp() >= GameConstants.FIRST_TIER_UP_XP) {
             System.out.println("=== 1차 전직 가능 ===");
             while (true) {
                 System.out.print("전직 선택: (1) : Warrior (2) : Mage => ");
@@ -86,9 +86,9 @@ public class GameService {
 
                 switch (pick) {
                     case "1":
-                        return new Warrior(character.getName(), GameConfig.WARRIOR_HEALTH, character.getXp());
+                        return new Warrior(character.getName(), GameConstants.WARRIOR_HEALTH, character.getXp());
                     case "2":
-                        return new Mage(character.getName(), GameConfig.MAGE_HEALTH, character.getXp());
+                        return new Mage(character.getName(), GameConstants.MAGE_HEALTH, character.getXp());
                     default:
                         System.out.println("잘못된 입력입니다. (1) 또는 (2)만 입력해주세요.");
                 }

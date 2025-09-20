@@ -1,6 +1,6 @@
 package week1;
 
-public class GameConfig {
+public class GameConstants {
 
     // 기본 캐릭터
     public static final int BASIC_HEALTH = 100;

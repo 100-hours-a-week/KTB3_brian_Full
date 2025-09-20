@@ -1,6 +1,6 @@
 package week1;
 
-import static week1.GameConfig.*;
+import static week1.GameConstants.*;
 
 public class ThunderWarrior extends Warrior {
 
