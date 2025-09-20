@@ -10,6 +10,7 @@ public class GameService {
     private final Random random = new Random();
     private final Scanner sc = new Scanner(System.in);
     private final BattleService battleService = new BattleService(random, sc);
+    private final TierUpService tierUpService = new TierUpService(sc);
 
     public void gameStart() {
         System.out.println("게임을 시작합니다.");
@@ -17,7 +18,7 @@ public class GameService {
         Character player = createCharacter();
         while (!player.isDead()) {
             System.out.println(player);
-            player = tryTierUp(player);
+            player = tierUpService.tryTierUp(player);
             Character enemy = createEnemy();
             battleService.fight(player, enemy);
 
@@ -38,64 +39,6 @@ public class GameService {
         }
 
         return new Character(name);
-    }
-
-    private Character tryTierUp(Character character) {
-        boolean isTierBasic = character.getClass() == Character.class;
-        boolean isTier1 = (character.getClass() == Warrior.class) || (character.getClass() == Mage.class);
-
-        if (isTier1 && character.getXp() >= GameConstants.SECOND_TIER_UP_XP) {
-            System.out.println("=== 2차 전직 가능 ===");
-
-            while (true) {
-                if (character instanceof Warrior) {
-                    while (true) {
-                        System.out.print("전사 계열: (1) ThunderWarrior (2) DragonWarrior => ");
-                        String pick = sc.nextLine().trim();
-                        switch (pick) {
-                            case "1":
-                                return new ThunderWarrior(character.getName(), GameConstants.THUNDER_WARRIOR_HEALTH, character.getXp());
-                            case "2":
-                                return new DragonWarrior(character.getName(), GameConstants.DRAGON_WARRIOR_HEALTH, character.getXp());
-                            default:
-                                System.out.println("잘못된 입력입니다. (1) 또는 (2)만 입력해주세요.");
-                        }
-                    }
-                } else {
-                    while (true) {
-                        System.out.print("마법사 계열: (1) FireMage (2) IceMage => ");
-                        String pick = sc.nextLine().trim();
-                        switch (pick) {
-                            case "1":
-                                return new FireMage(character.getName(), GameConstants.FIRE_MAGE_HEALTH, character.getXp());
-                            case "2":
-                                return new IceMage(character.getName(), GameConstants.ICE_MAGE_HEALTH, character.getXp());
-                            default:
-                                System.out.println("잘못된 입력입니다. (1) 또는 (2)만 입력해주세요.");
-                        }
-                    }
-                }
-            }
-        }
-
-        if (isTierBasic && character.getXp() >= GameConstants.FIRST_TIER_UP_XP) {
-            System.out.println("=== 1차 전직 가능 ===");
-            while (true) {
-                System.out.print("전직 선택: (1) : Warrior (2) : Mage => ");
-                String pick = sc.nextLine().trim();
-
-                switch (pick) {
-                    case "1":
-                        return new Warrior(character.getName(), GameConstants.WARRIOR_HEALTH, character.getXp());
-                    case "2":
-                        return new Mage(character.getName(), GameConstants.MAGE_HEALTH, character.getXp());
-                    default:
-                        System.out.println("잘못된 입력입니다. (1) 또는 (2)만 입력해주세요.");
-                }
-            }
-        }
-
-        return character;
     }
 
     private Character createEnemy() {
