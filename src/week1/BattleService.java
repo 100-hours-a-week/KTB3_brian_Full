@@ -5,7 +5,13 @@ import java.util.Scanner;
 
 public class BattleService {
 
-    private final Random rand = new Random();
+    private final Random rand;
+    private final Scanner sc;
+
+    public BattleService(Random rand, Scanner sc) {
+        this.rand = rand;
+        this.sc = sc;
+    }
 
     public void fight(Character player, Character enemy) {
         System.out.println("=========================");
@@ -40,7 +46,6 @@ public class BattleService {
     }
 
     private Choice askChoice() {
-        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print("가위(1)/바위(2)/보(3) 선택 => ");
             String s = sc.nextLine().trim();

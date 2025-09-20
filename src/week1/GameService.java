@@ -9,7 +9,7 @@ public class GameService {
 
     private final Random random = new Random();
     private final Scanner sc = new Scanner(System.in);
-    private final BattleService battleService = new BattleService();
+    private final BattleService battleService = new BattleService(random, sc);
 
     public void gameStart() {
         System.out.println("게임을 시작합니다.");
