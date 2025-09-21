@@ -9,9 +9,15 @@ public class GameService {
 
     private final Random random = new Random();
     private final Scanner sc = new Scanner(System.in);
-    private final FileLogger logger = new FileLogger();
-    private final BattleService battleService = new BattleService(random, sc, logger);
-    private final TierUpService tierUpService = new TierUpService(sc,logger);
+    private final FileLogger logger;
+    private final BattleService battleService;
+    private final TierUpService tierUpService;
+
+    public GameService(FileLogger logger) {
+        this.logger = logger;
+        this.battleService = new BattleService(random, sc, logger);
+        this.tierUpService = new TierUpService(sc,logger);
+    }
 
     public void gameStart() {
         System.out.println("게임을 시작합니다.");

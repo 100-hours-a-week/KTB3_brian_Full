@@ -3,7 +3,9 @@ package week2;
 public class GameApp {
 
     public static void main(String[] args) {
-        GameService game = new GameService();
-        game.gameStart();
+        try(FileLogger fileLogger = new FileLogger()) {
+            GameService game = new GameService(fileLogger);
+            game.gameStart();
+        }
     }
 }
