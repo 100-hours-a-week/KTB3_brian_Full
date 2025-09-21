@@ -1,6 +1,7 @@
-package week1;
+package week2;
 
 import java.util.Random;
+
 import static week1.GameConstants.*;
 
 public class Character {

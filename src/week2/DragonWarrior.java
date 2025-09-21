@@ -1,6 +1,7 @@
-package week1;
+package week2;
 
-import static week1.GameConstants.*;
+import static week1.GameConstants.DRAGON_WARRIOR_ATTACK_MAX;
+import static week1.GameConstants.DRAGON_WARRIOR_ATTACK_MIN;
 
 public class DragonWarrior extends Warrior {
 

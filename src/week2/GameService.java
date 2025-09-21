@@ -1,4 +1,4 @@
-package week1;
+package week2;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -9,21 +9,33 @@ public class GameService {
 
     private final Random random = new Random();
     private final Scanner sc = new Scanner(System.in);
-    private final BattleService battleService = new BattleService(random, sc);
-    private final TierUpService tierUpService = new TierUpService(sc);
+    private final FileLogger logger;
+    private final BattleService battleService;
+    private final TierUpService tierUpService;
+
+    public GameService(FileLogger logger) {
+        this.logger = logger;
+        this.battleService = new BattleService(random, sc, logger);
+        this.tierUpService = new TierUpService(sc,logger);
+    }
 
     public void gameStart() {
         System.out.println("게임을 시작합니다.");
 
         Character player = createCharacter();
+        logger.log("game start | player=" + player);
         while (!player.isDead()) {
             System.out.println(player);
             player = tierUpService.tryTierUp(player);
             Character enemy = createEnemy();
+
+            // 4) 전투 시작 로그
+            logger.log("battle start | me=" + player + " | enemy=" + enemy);
             battleService.fight(player, enemy);
 
             if (player.getXp() >= GAME_ENDING_XP) {
                 System.out.println("축하드립니다. 게임에서 승리했습니다");
+                logger.log("game end | result=WIN | player=" + player);
                 return;
             }
         }
@@ -51,6 +63,6 @@ public class GameService {
 
     private void gameOver() {
         System.out.println("체력이 0이 되어 패배했습니다.");
-
+        logger.log("game end | result=LOSE | player=DEAD");
     }
 }

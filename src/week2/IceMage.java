@@ -1,6 +1,7 @@
-package week1;
+package week2;
 
-import static week1.GameConstants.*;
+import static week1.GameConstants.ICE_MAGE_ATTACK_MAX;
+import static week1.GameConstants.ICE_MAGE_ATTACK_MIN;
 
 public class IceMage extends Mage {
 
